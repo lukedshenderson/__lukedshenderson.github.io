@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tucson Area Mountain Maps</title>
+
+    <!-- link to my style sheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- leaflet imports -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+</head>
+<body>
+    <div class="outlined">
+        <h1>
+            Explore mountains in the Tucson, AZ area
+        </h1>
+    </div>
+    <div class="outlined" id="map"></div>
+    <script>
+        var map = L.map('map').setView([32.14, -110.57], 8);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+    </script>
+<!-- <div class="outlined" id="map"></div> -->
+    <script>
+        var someFeatures = [{
+    "type": "Feature",
+    "properties": {
+        "name": "Mount Lemmon",
+        "show_on_map": true
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [-110.789592,  32.441385]
+    }
+}, {
+    "type": "Feature",
+    "properties": {
+        "name": "The Tucson Mountains",
+        "show_on_map": true
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [-111.088937,  32.224633]
+    }
+}, {
+    "type": "Feature",
+    "properties": {
+        "name": "The Green Valley Mountains",
+        "show_on_map": true
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [-110.852159,   31.690192]
+    }
+}];
+
+L.geoJSON(someFeatures, {
+    filter: function(feature, layer) {
+        return feature.properties.show_on_map;
+    }
+}).addTo(map);
+    </script>
+</body>
+</html>

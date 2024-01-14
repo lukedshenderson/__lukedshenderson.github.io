@@ -1,0 +1,12 @@
+/* Outlined class to help things show up */
+.outlined {
+    outline: solid red;
+    background-color: aqua;
+}
+
+
+/* add style to out map */
+#map { 
+    height: 600px; 
+
+}

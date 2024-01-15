@@ -3,14 +3,31 @@
     outline: solid red;
     background-color: aqua;
 }
+.padding-top {
+  padding-top: 10px;
+}
+
+/* .container {
+    background-color: brown;
+} */
 
 
 /* add style to out map */
 #map { 
-    height: 500px; 
+    height: 600px; 
 
 }
 #map-div {
     height: 100%;
 
 }
+
+
+/* style for body */
+
+body {
+    background-color: #525252 !important;
+}
+
+
+
